@@ -38,10 +38,15 @@ let result = document.getElementById("message");
 const time = 5*1000;
 
 for (let i = 0; i < 5; i++) {
-    numsRandom[i] = generaNumRandom();
-    let li = document.createElement("li");
-    li.append(numsRandom[i]);
-    listRandom.appendChild(li);
+    let randomTemp = generaNumRandom();
+    if (!(numsRandom.includes(randomTemp))) {
+        numsRandom[i] = randomTemp;
+        let li = document.createElement("li");
+        li.append(numsRandom[i]);
+        listRandom.appendChild(li);
+    } else {
+        i--;
+    }
 }
 
 setTimeout(function() {
