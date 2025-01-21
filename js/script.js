@@ -13,3 +13,17 @@
 //              - aumento counter indovinati
 //              - inserire num indovinato in array num indovinati
 // 6. stampare risultato
+
+
+function generaNumRandom () {
+
+    return Math.floor(Math.random() * 100) + 1;
+}
+
+let num1 = generaNumRandom();
+let num2 = generaNumRandom();
+let num3 = generaNumRandom();
+let num4 = generaNumRandom();
+let num5 = generaNumRandom();
+
+console.log(num1, num2, num3, num4, num5)
