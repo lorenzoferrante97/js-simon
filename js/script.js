@@ -20,10 +20,13 @@ function generaNumRandom () {
     return Math.floor(Math.random() * 100) + 1;
 }
 
-let num1 = generaNumRandom();
-let num2 = generaNumRandom();
-let num3 = generaNumRandom();
-let num4 = generaNumRandom();
-let num5 = generaNumRandom();
+let numsRandom = [];
 
-console.log(num1, num2, num3, num4, num5)
+for (let i = 0; i < 5; i++) {
+    numsRandom[i] = generaNumRandom();
+}
+console.log(numsRandom)
+
+for (let x = 0; x < numsRandom.length; x++) {
+
+}
