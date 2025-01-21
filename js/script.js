@@ -31,6 +31,9 @@ let form = document.getElementById("answers-form");
 
 let btn = document.querySelector(".btn");
 
+let counterGuessed = 0;
+let numsGuessed = [];
+
 const time = 5*1000;
 
 for (let i = 0; i < 5; i++) {
@@ -52,9 +55,16 @@ setTimeout(function() {
     form.classList.remove("d-none");
 }, time);
 
-btn.addEventListener("click", ()=> {
+btn.addEventListener("click", () => {
     event.preventDefault();
 
     let numsUser = document.querySelectorAll(".form-control");
-    console.log(numsUser)
+    
+    for (let x = 0; x < numsUser.length; x++) {
+        let numTemp = parseInt(numsUser[x].value);
+        if (numsRandom.includes(numTemp)) {
+            counterGuessed++;
+            numsGuessed.push(numTemp);
+        }
+    }
 })
