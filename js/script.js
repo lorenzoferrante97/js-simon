@@ -21,8 +21,7 @@ function generaNumRandom () {
 }
 
 let instructions = document.getElementById("instructions").classList;
-let instructionsGuess = document.createElement("p");
-instructionsGuess.classList.add("text-center");
+let instructionsGuess = document.getElementById("instructionsToGuess");
 
 let numsRandom = [];
 let listRandom = document.getElementById("numbers-list");
@@ -47,7 +46,6 @@ for (let i = 0; i < 5; i++) {
 
 setTimeout(function() {
     instructionsGuess.append("Inserisci tutti i numeri che ricordi (l'ordine non è importante)");
-    form.appendChild(instructionsGuess);
 
     instructions.add("d-none");
 
