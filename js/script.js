@@ -73,3 +73,5 @@ btn.addEventListener("click", () => {
     result.append(`Hai indovinato ${counterGuessed} numeri! ${numsGuessed.join("-")}`);
 
 })
+
+// end code
