@@ -23,9 +23,15 @@ function generaNumRandom () {
 let numsRandom = [];
 let listRandom = document.getElementById("numbers-list");
 
+const time = 30*1000;
+
 for (let i = 0; i < 5; i++) {
     numsRandom[i] = generaNumRandom();
     let li = document.createElement("li");
     li.append(numsRandom[i]);
     listRandom.appendChild(li);
 }
+
+setTimeout(function() {
+    
+}, time);
