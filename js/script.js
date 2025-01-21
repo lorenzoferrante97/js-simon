@@ -29,6 +29,8 @@ let listRandom = document.getElementById("numbers-list");
 
 let form = document.getElementById("answers-form");
 
+let btn = document.querySelector(".btn");
+
 const time = 5*1000;
 
 for (let i = 0; i < 5; i++) {
@@ -49,3 +51,10 @@ setTimeout(function() {
 
     form.classList.remove("d-none");
 }, time);
+
+btn.addEventListener("click", ()=> {
+    event.preventDefault();
+
+    let numsUser = document.querySelectorAll(".form-control");
+    console.log(numsUser)
+})
