@@ -34,6 +34,8 @@ let btn = document.querySelector(".btn");
 let counterGuessed = 0;
 let numsGuessed = [];
 
+let result = document.getElementById("message");
+
 const time = 5*1000;
 
 for (let i = 0; i < 5; i++) {
@@ -67,4 +69,7 @@ btn.addEventListener("click", () => {
             numsGuessed.push(numTemp);
         }
     }
+
+    result.append(`Hai indovinato ${counterGuessed} numeri! ${numsGuessed.join("-")}`);
+
 })
