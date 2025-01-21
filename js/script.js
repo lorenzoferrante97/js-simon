@@ -17,13 +17,19 @@
 
 function generaNumRandom () {
 
-    return Math.floor(Math.random() * 100) + 1;
+    return Math.floor(Math.random() * 50) + 1;
 }
+
+let instructions = document.getElementById("instructions").classList;
+let instructionsGuess = document.createElement("p");
+instructionsGuess.classList.add("text-center");
 
 let numsRandom = [];
 let listRandom = document.getElementById("numbers-list");
 
-const time = 30*1000;
+let form = document.getElementById("answers-form");
+
+const time = 5*1000;
 
 for (let i = 0; i < 5; i++) {
     numsRandom[i] = generaNumRandom();
@@ -33,5 +39,13 @@ for (let i = 0; i < 5; i++) {
 }
 
 setTimeout(function() {
-    
+    instructionsGuess.append("Inserisci tutti i numeri che ricordi (l'ordine non è importante)");
+    form.appendChild(instructionsGuess);
+
+    instructions.add("d-none");
+
+    listRandom.classList.remove("d-flex");
+    listRandom.classList.add("d-none");
+
+    form.classList.remove("d-none");
 }, time);
