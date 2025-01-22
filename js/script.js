@@ -80,11 +80,13 @@ btn.addEventListener("click", () => {
         arrayTemp.shift();
         // controllo
         if (arrayTemp.includes(numCheckDuplicate)) {
+            arrayTemp = [];
             y = arrayTemp.length + 1;
         } else {
             arrayTemp.push(numCheckDuplicate);
             if (y == arrayTemp.length - 1) {
                 correctInput = true;
+                arrayTemp = [];
                 y = arrayTemp.length + 1;
             }
         }
