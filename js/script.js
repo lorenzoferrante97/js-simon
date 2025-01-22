@@ -30,6 +30,9 @@ let form = document.getElementById("answers-form");
 
 let btn = document.querySelector(".btn");
 
+let arrayTemp = [];
+let correctInput = false;
+
 let counterGuessed = 0;
 let numsGuessed = [];
 
@@ -64,16 +67,55 @@ btn.addEventListener("click", () => {
     event.preventDefault();
 
     let numsUser = document.querySelectorAll(".form-control");
-    
-    for (let x = 0; x < numsUser.length; x++) {
-        let numTemp = parseInt(numsUser[x].value);
-        if (numsRandom.includes(numTemp)) {
-            counterGuessed++;
-            numsGuessed.push(numTemp);
-        }
+
+    for (let z = 0; z < numsUser.length; z++) {
+        arrayTemp.unshift(numsUser[z].value);
     }
 
-    result.append(`Hai indovinato ${counterGuessed} numeri! ${numsGuessed.join("-")}`);
+    // controllo se utente ha inserito due num uguali
+    for (let y = 0; y < arrayTemp.length; y++) {
+        // salvo il num dell'array temp in una variabile per il controllo futuro
+        let numCheckDuplicate = arrayTemp[0];
+        // elimino quel num dall'array temp
+        arrayTemp.shift();
+        // controllo
+        if (arrayTemp.includes(numCheckDuplicate)) {
+            y = arrayTemp.length + 1;
+        } else {
+            arrayTemp.push(numCheckDuplicate);
+            if (y == arrayTemp.length - 1) {
+                correctInput = true;
+                y = arrayTemp.length + 1;
+            }
+        }
+
+        // let numCheckTemp = parseInt(numsUser[y].value);
+        // if (arrayTemp.includes(numCheckTemp)) {
+        //     //esco dal ciclo
+        //     y = numsUser.length + 1;
+        // } else {
+        //     //procedere con codice
+        //     correctInput = true;
+        // }
+        
+    }
+
+    if (correctInput) {
+        for (let x = 0; x < numsUser.length; x++) {
+            let numTemp = parseInt(numsUser[x].value);
+            if (numsRandom.includes(numTemp)) {
+                counterGuessed++;
+                numsGuessed.push(numTemp);
+            }
+        }
+    
+        result.append(`Hai indovinato ${counterGuessed} numeri! ${numsGuessed.join("-")}`);
+    } else {
+        let errorMessage = document.createElement("p");
+        errorMessage.append("Non puoi inserire più volte lo stesso numero. Inserisci altri numeri.")
+        instructionsGuess.appendChild(errorMessage);
+    }
+    
 
 })
 
